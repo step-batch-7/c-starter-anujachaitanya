@@ -8,6 +8,7 @@ int lcm(int, int);
 float simple_interest(int, int, float);
 float fahrenheit_to_centigrade(int);
 float centigrade_to_fahrenheit(int);
+float average(int, int, int);
 
 unsigned char is_even(int number)
 {
@@ -61,9 +62,15 @@ float centigrade_to_fahrenheit(int temperature)
   return ((temperature * 9 / 5.00) + 32);
 }
 
+float average(int no1, int no2, int no3)
+{
+  int sum = no1 + no2 + no3;
+  return sum / 3.00;
+}
+
 int main(void)
 {
-  int number, number1, number2, principle, noOfYear, temperature;
+  int number, no2, no3, principle, noOfYear, temperature;
   float rate;
   printf("Enter the number ");
   scanf("%d", &number);
@@ -72,16 +79,19 @@ int main(void)
   printf("Square of %d is %lu \n", number, square(number));
   printf("Cube of %d is %lu \n", number, cube(number));
   printf("\nEnter two numbers for calculating G.C.D. and L.C.M. ");
-  scanf("%d %d", &number1, &number2);
-  printf("G.C.D. of %d and %d is %d \n", number1, number2, gcd(number1, number2));
-  printf("L.C.M. of %d and %d is %d \n", number1, number2, lcm(number1, number2));
+  scanf("%d %d", &no2, &no3);
+  printf("G.C.D. of %d and %d is %d \n", no2, no3, gcd(no2, no3));
+  printf("L.C.M. of %d and %d is %d \n", no2, no3, lcm(no2, no3));
   printf("\nEnter the 1. principle amount, \n2. number of years \n3. rate of interest \nto calculate simple and compound interest \n");
   scanf("%d %d %f", &principle, &noOfYear, &rate);
   printf("Simple interest is %f \n", simple_interest(principle, noOfYear, rate));
-  printf("\nEnter temperature to convert into celsius");
+  printf("\nEnter temperature to convert into celsius ");
   scanf("%d", &temperature);
   printf("%d fahrenheit is %f centigrade\n", temperature, fahrenheit_to_centigrade(temperature));
   printf("\nEnter the temperature to convert into fahrenheit ");
   scanf("%d", &temperature);
   printf("%d centigrade is %f fahrenheit\n", temperature, centigrade_to_fahrenheit(temperature));
+  printf("\nEnter three numbers to calculate the average ");
+  scanf("%d %d %d", &number, &no2, &no3);
+  printf("Average of %d %d and %d is %f", number, no2, no3, average(number, no2, no3));
 }
