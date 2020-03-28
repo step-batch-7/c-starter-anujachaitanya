@@ -68,6 +68,16 @@ float average(int no1, int no2, int no3)
   return sum / 3.00;
 }
 
+int getGreater(int no1, int no2)
+{
+  return (no1 > no2) ? no1 : no2;
+}
+
+int greatest_of_three(int no1, int no2, int no3)
+{
+  return getGreater(getGreater(no1, no2), no3);
+}
+
 int main(void)
 {
   int number, no2, no3, principle, noOfYear, temperature;
@@ -91,7 +101,8 @@ int main(void)
   printf("\nEnter the temperature to convert into fahrenheit ");
   scanf("%d", &temperature);
   printf("%d centigrade is %f fahrenheit\n", temperature, centigrade_to_fahrenheit(temperature));
-  printf("\nEnter three numbers to calculate the average ");
+  printf("\nEnter three numbers to calculate the average and greater of them ");
   scanf("%d %d %d", &number, &no2, &no3);
-  printf("Average of %d %d and %d is %f", number, no2, no3, average(number, no2, no3));
+  printf("Average of %d %d and %d is %f\n ", number, no2, no3, average(number, no2, no3));
+  printf("Greatest no between %d %d and %d is %d", number, no2, no3, greatest_of_three(number, no2, no3));
 }
