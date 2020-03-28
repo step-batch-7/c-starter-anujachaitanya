@@ -7,6 +7,7 @@ int gcd(int, int);
 int lcm(int, int);
 float simple_interest(int, int, float);
 float fahrenheit_to_centigrade(int);
+float centigrade_to_fahrenheit(int);
 
 unsigned char is_even(int number)
 {
@@ -52,7 +53,12 @@ float simple_interest(int p, int n, float r)
 
 float fahrenheit_to_centigrade(int temperature)
 {
-  return (temperature - 32) * 5 / 9;
+  return ((temperature - 32) * 5) / 9.00;
+}
+
+float centigrade_to_fahrenheit(int temperature)
+{
+  return ((temperature * 9 / 5.00) + 32);
 }
 
 int main(void)
@@ -72,7 +78,10 @@ int main(void)
   printf("\nEnter the 1. principle amount, \n2. number of years \n3. rate of interest \nto calculate simple and compound interest \n");
   scanf("%d %d %f", &principle, &noOfYear, &rate);
   printf("Simple interest is %f \n", simple_interest(principle, noOfYear, rate));
-  printf("\nEnter temperature to convert into fahrenheit");
+  printf("\nEnter temperature to convert into celsius");
   scanf("%d", &temperature);
   printf("%d fahrenheit is %f centigrade\n", temperature, fahrenheit_to_centigrade(temperature));
+  printf("\nEnter the temperature to convert into fahrenheit ");
+  scanf("%d", &temperature);
+  printf("%d centigrade is %f fahrenheit\n", temperature, centigrade_to_fahrenheit(temperature));
 }
