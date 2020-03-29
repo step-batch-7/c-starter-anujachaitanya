@@ -83,9 +83,19 @@ long int multiply_numbers(int start, int end)
   return product;
 }
 
+int print_nth_number(int step, int start, int end)
+{
+  printf("\nEvery %dth number between %d and %d are:\n", step, start, end);
+  for (int num = start; num <= end; num += step)
+  {
+    printf("%d\n", num);
+  }
+  return 0;
+}
+
 int main(void)
 {
-  int number;
+  int number, upto, step;
   printf("Enter the number to get factorial ");
   scanf("%d", &number);
   printf("Factorial of %d is %lu\n", number, factorial(number));
@@ -102,7 +112,6 @@ int main(void)
   scanf("%d", &number);
   print_odds(number);
 
-  int upto;
   printf("\nEnter two numbers to get multiplication table ");
   scanf("%d %d", &number, &upto);
   print_multiplication_table(number, upto);
@@ -113,6 +122,10 @@ int main(void)
 
   printf("\nEnter two numbers to get multiplication ");
   scanf("%d %d", &number, &upto);
-  printf("Multiplication from %d to %d is %ld", number, upto, multiply_numbers(number, upto));
+  printf("Multiplication from %d to %d is %ld\n", number, upto, multiply_numbers(number, upto));
+
+  printf("\nEnter the start and ending of series with step ");
+  scanf("%d%d%d", &number, &upto, &step);
+  print_nth_number(step, number, upto);
   return 0;
 }
