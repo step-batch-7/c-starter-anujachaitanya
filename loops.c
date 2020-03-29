@@ -4,6 +4,8 @@ unsigned long int factorial(int);
 int fibonacci(int);
 int print_evens(int);
 unsigned char is_even(int);
+int print_odds(int);
+int print_multiplication_table(int, int);
 
 unsigned long int factorial(int number)
 {
@@ -49,6 +51,16 @@ int print_odds(int endingAt)
   return 0;
 }
 
+int print_multiplication_table(int m, int n)
+{
+  printf("\nMultiplication table of %d upto %d:\n", m, n);
+  for (int i = 1; i <= n; i++)
+  {
+    printf("%d x %d = %d\n", m, i, m * i);
+  }
+  return 0;
+}
+
 int main(void)
 {
   int number;
@@ -67,5 +79,10 @@ int main(void)
   printf("\nEnter the number to get all odds: ");
   scanf("%d", &number);
   print_odds(number);
+
+  int upto;
+  printf("\nEnter two numbers to get multiplication table ");
+  scanf("%d %d", &number, &upto);
+  print_multiplication_table(number, upto);
   return 0;
 }
