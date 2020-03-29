@@ -103,6 +103,16 @@ long int add_evens(int start, int end)
   return sum;
 }
 
+int print_odds_backwards(int start)
+{
+  printf("\nOdds between %d and 1 in reverse order are:\n", start);
+  for (int number = start; number >= 1; number--)
+  {
+    !is_even(number) && printf("%d\n", number);
+  }
+  return 0;
+}
+
 int main(void)
 {
   int number, upto, step;
@@ -141,5 +151,9 @@ int main(void)
   printf("\nEnter two numbers to get addition of even numbers ");
   scanf("%d %d", &number, &upto);
   printf("Addition of evens from %d to %d is %ld\n", number, upto, add_evens(number, upto));
+
+  printf("\nEnter the number to get all odds in reverse order : ");
+  scanf("%d", &number);
+  print_odds_backwards(number);
   return 0;
 }
