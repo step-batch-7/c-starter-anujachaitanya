@@ -39,6 +39,16 @@ int print_evens(int length)
   return 0;
 }
 
+int print_odds(int endingAt)
+{
+  printf("\nOdd numbers between %d and %d are:\n", 1, endingAt);
+  for (int num = 1; num <= endingAt; num++)
+  {
+    !is_even(num) && printf("%d\n", num);
+  }
+  return 0;
+}
+
 int main(void)
 {
   int number;
@@ -50,8 +60,12 @@ int main(void)
   scanf("%d", &number);
   fibonacci(number);
 
-  printf("\nEnter the number to get all the evens: ");
+  printf("\nEnter the number to get all evens: ");
   scanf("%d", &number);
   print_evens(number);
+
+  printf("\nEnter the number to get all odds: ");
+  scanf("%d", &number);
+  print_odds(number);
   return 0;
 }
