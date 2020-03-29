@@ -86,11 +86,21 @@ long int multiply_numbers(int start, int end)
 int print_nth_number(int step, int start, int end)
 {
   printf("\nEvery %dth number between %d and %d are:\n", step, start, end);
-  for (int num = start; num <= end; num += step)
+  for (int number = start; number <= end; number += step)
   {
-    printf("%d\n", num);
+    printf("%d\n", number);
   }
   return 0;
+}
+
+long int add_evens(int start, int end)
+{
+  long int sum = 0;
+  for (int number = start; number <= end; number++)
+  {
+    is_even(number) && (sum += number);
+  }
+  return sum;
 }
 
 int main(void)
@@ -127,5 +137,9 @@ int main(void)
   printf("\nEnter the start and ending of series with step ");
   scanf("%d%d%d", &number, &upto, &step);
   print_nth_number(step, number, upto);
+
+  printf("\nEnter two numbers to get addition of even numbers ");
+  scanf("%d %d", &number, &upto);
+  printf("Addition of evens from %d to %d is %ld\n", number, upto, add_evens(number, upto));
   return 0;
 }
