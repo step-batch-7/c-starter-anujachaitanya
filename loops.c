@@ -6,6 +6,7 @@ int print_evens(int);
 unsigned char is_even(int);
 int print_odds(int);
 int print_multiplication_table(int, int);
+long int add_numbers(int, int);
 
 unsigned long int factorial(int number)
 {
@@ -61,6 +62,16 @@ int print_multiplication_table(int m, int n)
   return 0;
 }
 
+long int add_numbers(int startingAt, int endingAt)
+{
+  long int sum = 0;
+  for (int num = startingAt; num <= endingAt; num++)
+  {
+    sum += num;
+  }
+  return sum;
+}
+
 int main(void)
 {
   int number;
@@ -84,5 +95,9 @@ int main(void)
   printf("\nEnter two numbers to get multiplication table ");
   scanf("%d %d", &number, &upto);
   print_multiplication_table(number, upto);
+
+  printf("\nEnter two numbers to get addition ");
+  scanf("%d %d", &number, &upto);
+  printf("Addition from %d to %d is %ld", number, upto, add_numbers(number, upto));
   return 0;
 }
