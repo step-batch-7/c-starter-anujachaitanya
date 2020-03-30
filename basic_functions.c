@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 unsigned char is_even(int);
 unsigned char is_odd(int);
 long int square(int);
@@ -9,6 +10,7 @@ float simple_interest(int, int, float);
 float fahrenheit_to_centigrade(int);
 float centigrade_to_fahrenheit(int);
 float average(int, int, int);
+float compound_interest(int, float, int);
 
 unsigned char is_even(int number)
 {
@@ -52,6 +54,11 @@ float simple_interest(int p, int n, float r)
   return (p * n * r) / 100;
 }
 
+float compound_interest(int p, float r, int n)
+{
+  return p * (pow(1 + r / 100, n)) - p;
+}
+
 float fahrenheit_to_centigrade(int temperature)
 {
   return ((temperature - 32) * 5) / 9.00;
@@ -85,16 +92,26 @@ int main(void)
   printf("Enter the number ");
   scanf("%d", &number);
   printf("%d is %s \n", number, is_even(number) ? "even" : "not even");
+
   printf("%d is %s \n", number, is_odd(number) ? "odd" : "not odd");
+
   printf("Square of %d is %lu \n", number, square(number));
+
   printf("Cube of %d is %lu \n", number, cube(number));
+
   printf("\nEnter two numbers for calculating G.C.D. and L.C.M. ");
   scanf("%d %d", &no2, &no3);
   printf("G.C.D. of %d and %d is %d \n", no2, no3, gcd(no2, no3));
   printf("L.C.M. of %d and %d is %d \n", no2, no3, lcm(no2, no3));
+
   printf("\nEnter the 1. principle amount, \n2. number of years \n3. rate of interest \nto calculate simple and compound interest \n");
   scanf("%d %d %f", &principle, &noOfYear, &rate);
   printf("Simple interest is %f \n", simple_interest(principle, noOfYear, rate));
+
+  printf("\nEnter principal, rate and interest to find compound interest \n");
+  scanf("%d %f %d", &principle, &rate, &noOfYear);
+  printf("CI of number is : %f.\n", compound_interest(principle, rate, noOfYear));
+
   printf("\nEnter temperature to convert into celsius ");
   scanf("%d", &temperature);
   printf("%d fahrenheit is %f centigrade\n", temperature, fahrenheit_to_centigrade(temperature));
